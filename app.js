@@ -7,6 +7,11 @@
     var lazy = require("lazy");
 
     var folderpath = "./videos/";
+
+    if(!(fs.existsSync(folderpath))){
+        fs.mkdirSync(folderpath);
+    }
+
     new lazy(fs.createReadStream('./input.txt'))
     .lines.forEach(function(url){
         url = url.toString();
